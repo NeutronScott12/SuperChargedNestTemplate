@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Todo {
+  """ID Field for Todo"""
+  id: String!
+  todo: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  fetch_all_todos: [Todo!]!
+  find_one_todo(id: String!): Todo!
+}
+
+type Mutation {
+  create_todo(createTodoInput: CreateTodoInput!): Todo!
+  update_todo(updateTodoInput: UpdateTodoInput!): Todo!
+  remove_todo(id: String!): Todo!
+}
+
+input CreateTodoInput {
+  """Add a todo"""
+  todo: String!
+}
+
+input UpdateTodoInput {
+  """Add a todo"""
+  todo: String
+  id: String!
+}
